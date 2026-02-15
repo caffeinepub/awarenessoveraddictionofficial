@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.5rem;
+        
+        /* Warm earth tones - light mode */
+        --background: 0.98 0.01 60;
+        --foreground: 0.25 0.02 60;
+        
+        --card: 1 0 0;
+        --card-foreground: 0.25 0.02 60;
+        
+        --popover: 1 0 0;
+        --popover-foreground: 0.25 0.02 60;
+        
+        /* Warm terracotta/rust primary */
+        --primary: 0.55 0.15 35;
+        --primary-foreground: 0.98 0.01 60;
+        
+        /* Soft sage secondary */
+        --secondary: 0.88 0.03 140;
+        --secondary-foreground: 0.25 0.02 60;
+        
+        --muted: 0.93 0.02 60;
+        --muted-foreground: 0.50 0.02 60;
+        
+        /* Warm accent */
+        --accent: 0.90 0.04 50;
+        --accent-foreground: 0.30 0.02 60;
+        
+        --destructive: 0.55 0.20 25;
+        --destructive-foreground: 0.98 0.01 60;
+        
+        --border: 0.88 0.02 60;
+        --input: 0.88 0.02 60;
+        --ring: 0.55 0.15 35;
+        
+        --chart-1: 0.60 0.15 35;
+        --chart-2: 0.65 0.12 140;
+        --chart-3: 0.70 0.10 50;
+        --chart-4: 0.55 0.18 25;
+        --chart-5: 0.75 0.08 180;
+    }
+
+    .dark {
+        /* Dark mode with warm undertones */
+        --background: 0.18 0.02 60;
+        --foreground: 0.95 0.01 60;
+        
+        --card: 0.22 0.02 60;
+        --card-foreground: 0.95 0.01 60;
+        
+        --popover: 0.20 0.02 60;
+        --popover-foreground: 0.95 0.01 60;
+        
+        /* Lighter terracotta for dark mode */
+        --primary: 0.68 0.14 35;
+        --primary-foreground: 0.18 0.02 60;
+        
+        --secondary: 0.30 0.03 140;
+        --secondary-foreground: 0.95 0.01 60;
+        
+        --muted: 0.28 0.02 60;
+        --muted-foreground: 0.65 0.02 60;
+        
+        --accent: 0.32 0.03 50;
+        --accent-foreground: 0.95 0.01 60;
+        
+        --destructive: 0.60 0.18 25;
+        --destructive-foreground: 0.95 0.01 60;
+        
+        --border: 0.30 0.02 60;
+        --input: 0.30 0.02 60;
+        --ring: 0.68 0.14 35;
+        
+        --chart-1: 0.65 0.14 35;
+        --chart-2: 0.55 0.12 140;
+        --chart-3: 0.60 0.10 50;
+        --chart-4: 0.58 0.16 25;
+        --chart-5: 0.70 0.08 180;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+    
+    /* Improve readability */
+    p, li {
+        @apply leading-relaxed;
+    }
+    
+    /* Smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+}

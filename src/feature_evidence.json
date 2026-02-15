@@ -1,0 +1,23 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-replace-the-existing-contact-page-content-including-the-contact-form-with-a-single-section-titled-india-support-contact-that-displays-only-the-provided-email-address-and-instagram-handle-and-does-not-display-any-phone-number",
+      "featureTitle": "Replace the existing Contact page content (including the contact form) with a single section titled \"India Support Contact\" that displays only the provided email address and Instagram handle, and does not display any phone number.",
+      "files": [
+        "frontend/src/pages/Contact.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

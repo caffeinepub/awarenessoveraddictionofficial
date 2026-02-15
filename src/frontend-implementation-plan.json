@@ -1,0 +1,27 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Replace Contact page with India Support Contact details",
+  "requirements": [
+    {
+      "id": "REQ-7",
+      "summary": "Replace the /contact page by removing the existing form and showing only an \"India Support Contact\" section with the provided email and Instagram handle (no phone number).",
+      "acceptanceCriteria": [
+        "Visiting /contact shows a page with the heading \"India Support Contact\".",
+        "The page displays the email address exactly as: awarenessoveraddictionoffial@gmail.com.",
+        "The page displays the Instagram handle exactly as: awarenessoveraddictionofficial.",
+        "The email is a clickable mailto: link and the Instagram handle links to https://instagram.com/awarenessoveraddictionofficial (opens in a new tab).",
+        "No phone number is shown anywhere on the Contact page.",
+        "The previous contact form fields (Name, Email, Subject, Message) and submit button are removed from the Contact page.",
+        "User-facing text on the Contact page remains in English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Contact.tsx",
+          "operation": "modify",
+          "description": "Replace the current Contact Us/form UI with a single section titled \"India Support Contact\" that renders (1) a mailto link for awarenessoveraddictionoffial@gmail.com and (2) an external link (target=\"_blank\" with rel=\"noopener noreferrer\") to https://instagram.com/awarenessoveraddictionofficial displaying the handle awarenessoveraddictionofficial; remove all form state/handlers, the emergency disclaimer text, and any other content so the page does not show any phone number. Use existing shadcn-ui components already present in the file (e.g., Card/typography) for consistent styling. Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

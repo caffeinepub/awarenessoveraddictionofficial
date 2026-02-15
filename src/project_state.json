@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Website project for “awarenessoveraddictionofficial” focused on helping people by providing informational content (addiction and recovery resources).",
+  "architectural_notes": [
+    "Contact page should provide a non-real-time contact method limited to email + Instagram for India Support Contact; do not display a phone number."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-public-informational-website-for-awarenessoveraddictionofficial-that-helps-visitors-understand-addiction-and-recovery-through-clearly-structured-educational-content",
+      "title": "Create a public, informational website for “awarenessoveraddictionofficial” that helps visitors understand addiction and recovery through clearly structured educational content.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-core-informational-sections-with-english-user-facing-text-1-what-addiction-is-2-signs-risk-factors-3-recovery-basics-4-how-to-support-someone-5-relapse-what-to-do-next-6-frequently-asked-questions",
+      "title": "Add core informational sections with English user-facing text: (1) What Addiction Is, (2) Signs & Risk Factors, (3) Recovery Basics, (4) How to Support Someone, (5) Relapse & What to Do Next, (6) Frequently Asked Questions.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-get-help-now-resources-area-that-includes-crisis-focused-guidance-e-g-if-you-are-in-immediate-danger-call-your-local-emergency-number-and-a-curated-list-of-external-helplines-resources-with-clickable-links",
+      "title": "Add a “Get Help Now” / “Resources” area that includes crisis-focused guidance (e.g., ‘If you are in immediate danger, call your local emergency number’) and a curated list of external helplines/resources with clickable links.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-about-page-describing-the-mission-of-awareness-over-addiction-official-and-a-simple-contact-page-that-provides-a-non-real-time-way-to-reach-out-e-g-a-contact-form-that-clearly-states-it-may-not-be-monitored-24-7-or-a-displayed-contact-email-if-provided-later",
+      "title": "Add an “About” page describing the mission of Awareness Over Addiction Official and a simple “Contact” page that provides a non-real-time way to reach out (e.g., a contact form that clearly states it may not be monitored 24/7, or a displayed contact email if provided later).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-one-cohesive-distinctive-visual-theme-across-the-site-colors-typography-spacing-and-components-avoiding-blue-purple-as-the-dominant-palette-and-ensure-the-design-supports-calm-supportive-accessible-reading",
+      "title": "Apply one cohesive, distinctive visual theme across the site (colors, typography, spacing, and components), avoiding blue/purple as the dominant palette, and ensure the design supports calm, supportive, accessible reading.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-brand-assets-logo-and-a-hero-illustration-and-render-them-on-the-site-e-g-logo-in-header-footer-and-hero-image-on-the-home-page-from-frontend-public-assets-generated-do-not-serve-images-via-the-backend",
+      "title": "Add generated static brand assets (logo and a hero illustration) and render them on the site (e.g., logo in header/footer and hero image on the home page) from frontend/public/assets/generated (do not serve images via the backend).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-existing-contact-page-content-including-the-contact-form-with-a-single-section-titled-india-support-contact-that-displays-only-the-provided-email-address-and-instagram-handle-and-does-not-display-any-phone-number",
+      "title": "Replace the existing Contact page content (including the contact form) with a single section titled \"India Support Contact\" that displays only the provided email address and Instagram handle, and does not display any phone number.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create an informational website for awarenessoveraddictionofficial to help people with addiction/recovery information and resources.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Replace the Contact page content with an “India Support Contact” section showing only email (awarenessoveraddictionoffial@gmail.com) and Instagram handle (awarenessoveraddictionofficial), with no phone number.",
+      "reqIds": [],
+      "status": "in_progress"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "awarenessoveraddictionofficial",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

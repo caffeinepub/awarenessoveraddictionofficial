@@ -1,0 +1,53 @@
+{
+  "kind": "build_request",
+  "title": "Replace Contact page with India Support Contact details (email + Instagram only)",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-7",
+      "text": "Replace the existing Contact page content (including the contact form) with a single section titled \"India Support Contact\" that displays only the provided email address and Instagram handle, and does not display any phone number.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-User-need-india-contact-details",
+          "msg-User-answers"
+        ],
+        "quotes": [
+          "need india contact details do not add our number just add our email and instagram id awarenessoveraddictionoffial@gmail.com",
+          "1. india contact details only india support contact 2. awarenessoveraddictionofficial 3. replace"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Visiting /contact shows a page with the heading \"India Support Contact\".",
+        "The page displays the email address exactly as: awarenessoveraddictionoffial@gmail.com.",
+        "The page displays the Instagram handle exactly as: awarenessoveraddictionofficial.",
+        "The email is a clickable mailto: link and the Instagram handle links to https://instagram.com/awarenessoveraddictionofficial (opens in a new tab).",
+        "No phone number is shown anywhere on the Contact page.",
+        "The previous contact form fields (Name, Email, Subject, Message) and submit button are removed from the Contact page.",
+        "User-facing text on the Contact page remains in English."
+      ]
+    }
+  ],
+  "constraints": [
+    "Frontend immutable paths must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui/*.",
+    "Do not add any phone number to the Contact page."
+  ],
+  "nonGoals": [
+    "Do not implement backend contact-form submission or data storage.",
+    "Do not change site navigation routes or add new pages."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

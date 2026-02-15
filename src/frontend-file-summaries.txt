@@ -1,0 +1,21 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router configuration for all pages (Home, educational sections, Resources, About, Contact) wrapped in SiteLayout.",
+  "frontend/src/components/layout/SiteLayout.tsx": "Root layout component that wraps all pages with SiteHeader, main content area with Outlet, and SiteFooter.",
+  "frontend/src/components/layout/SiteHeader.tsx": "Responsive header with logo, navigation menu for all sections, mobile menu toggle, and prominent \"Get Help Now\" CTA button.",
+  "frontend/src/components/layout/SiteFooter.tsx": "Footer with branding, quick links, disclaimer, copyright, and Caffeine.ai attribution with UTM tracking.",
+  "frontend/src/pages/Home.tsx": "Landing page with hero section featuring generated assets, key features cards, and prominent CTAs for getting help and learning more.",
+  "frontend/src/pages/WhatAddictionIs.tsx": "Educational page explaining addiction as a disease with structured content sections using Cards.",
+  "frontend/src/pages/SignsRiskFactors.tsx": "Educational page covering warning signs and risk factors for addiction with bulleted lists and clear sections.",
+  "frontend/src/pages/RecoveryBasics.tsx": "Educational page about recovery process, treatment options, and building support networks.",
+  "frontend/src/pages/HowToSupportSomeone.tsx": "Guidance page for supporting loved ones with addiction, including boundaries and self-care tips with compassionate Alert component.",
+  "frontend/src/pages/RelapseNextSteps.tsx": "Educational page about understanding relapse, warning signs, and steps to take with supportive messaging.",
+  "frontend/src/pages/Faq.tsx": "Frequently asked questions page using Accordion component for scannable Q&A format.",
+  "frontend/src/pages/Resources.tsx": "Comprehensive resources page with emergency disclaimer, crisis hotlines, support groups, treatment finders, and educational resources organized by category.",
+  "frontend/src/pages/About.tsx": "About page describing mission, approach, and who the site serves with clear disclaimer about educational purpose.",
+  "frontend/src/pages/Contact.tsx": "Contact page displaying India Support Contact section with email (mailto link) and Instagram handle (external link), replacing the previous contact form.",
+  "frontend/src/content/education.ts": "Centralized educational content data structure with all six core sections (What Addiction Is, Signs & Risk Factors, Recovery Basics, How to Support, Relapse, FAQ).",
+  "frontend/src/content/resources.ts": "Curated external resources data including crisis hotlines, support groups, treatment finders, and educational websites with emergency disclaimers.",
+  "frontend/src/index.css": "Global styles with warm earth-tone OKLCH color system (terracotta primary, sage secondary) for both light and dark modes, avoiding blue/purple.",
+  "frontend/tailwind.config.js": "Tailwind configuration with custom warm color palette, Inter font family, and extended design tokens for consistent spacing and typography.",
+  "frontend/src/hooks/useQueries.ts": "Minimal placeholder file as backend has no methods and site is purely informational with no data fetching."
+}

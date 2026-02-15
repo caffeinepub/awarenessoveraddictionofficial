@@ -1,0 +1,62 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-15T14:52:24.109Z",
+  "summary": "Contact page was updated to show an \"India Support Contact\" heading with email (mailto) and Instagram link, and the prior form appears removed. However, the page includes additional content beyond just the email + Instagram handle, and the Instagram handle text does not match the exact required string.",
+  "missing_requirements": [
+    {
+      "id": "REQ-7",
+      "requirement": "The page displays the Instagram handle exactly as: awarenessoveraddictionofficial.",
+      "reason": "The rendered Instagram link text includes an '@' prefix, so the displayed handle is not exactly the required string.",
+      "evidence": [
+        "frontend/src/pages/Contact.tsx (Instagram link text: \"@awarenessoveraddictionofficial\")"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "requirement": "Replace the existing Contact page content with a single section titled \"India Support Contact\" that displays only the provided email address and Instagram handle.",
+      "reason": "The page includes additional UI/content beyond just the email and Instagram handle (intro paragraph, an extra \"Contact Information\" card title, and a footer paragraph linking to /resources), so it is not limited to only those two items nor a single minimal section.",
+      "evidence": [
+        "frontend/src/pages/Contact.tsx (includes \"Reach out to us for support and information.\")",
+        "frontend/src/pages/Contact.tsx (CardTitle: \"Contact Information\")",
+        "frontend/src/pages/Contact.tsx (includes \"For immediate help and resources...\" and link to \"/resources\")"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Additional explanatory copy on the Contact page (\"Reach out to us for support and information.\").",
+      "reason": "REQ-7 specifies the Contact page should display only the provided email address and Instagram handle.",
+      "evidence": [
+        "frontend/src/pages/Contact.tsx"
+      ]
+    },
+    {
+      "description": "Extra section/header \"Contact Information\" presented in a Card layout.",
+      "reason": "REQ-7 asks for a single section titled \"India Support Contact\"; adding a separate titled card section is extra structure not requested.",
+      "evidence": [
+        "frontend/src/pages/Contact.tsx"
+      ]
+    },
+    {
+      "description": "Added a call-to-action/link to the Resources page (\"Get Help Now\").",
+      "reason": "REQ-7 restricts Contact page content to only email + Instagram handle.",
+      "evidence": [
+        "frontend/src/pages/Contact.tsx"
+      ]
+    },
+    {
+      "description": "Added iconography for email and Instagram (Mail, SiInstagram).",
+      "reason": "Not requested by REQ-7; REQ-7 focuses on displaying only the email address and Instagram handle.",
+      "evidence": [
+        "frontend/src/pages/Contact.tsx (imports from lucide-react and react-icons/si)"
+      ]
+    }
+  ],
+  "confidence": 0.74,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/pages/Contact.tsx",
+    "project_state.json"
+  ]
+}
