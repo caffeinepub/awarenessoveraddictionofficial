@@ -2,8 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-replace-the-existing-contact-page-content-including-the-contact-form-with-a-single-section-titled-india-support-contact-that-displays-only-the-provided-email-address-and-instagram-handle-and-does-not-display-any-phone-number",
-      "featureTitle": "Replace the existing Contact page content (including the contact form) with a single section titled \"India Support Contact\" that displays only the provided email address and Instagram handle, and does not display any phone number.",
+      "featureId": "feature-update-the-email-address-shown-on-the-existing-contact-page-india-support-contact-to-exactly-awarenessoveraddictionofficial-gmail-com-including-both-the-visible-text-and-the-mailto-link",
+      "featureTitle": "Update the email address shown on the existing Contact page (India Support Contact) to exactly \"awarenessoveraddictionofficial@gmail.com\", including both the visible text and the mailto: link.",
       "files": [
         "frontend/src/pages/Contact.tsx"
       ],
@@ -15,7 +15,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-7"
+        "REQ-1"
       ],
       "confidence": "high"
     }

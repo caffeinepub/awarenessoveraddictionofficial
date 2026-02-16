@@ -12,7 +12,7 @@
   "frontend/src/pages/Faq.tsx": "Frequently asked questions page using Accordion component for scannable Q&A format.",
   "frontend/src/pages/Resources.tsx": "Comprehensive resources page with emergency disclaimer, crisis hotlines, support groups, treatment finders, and educational resources organized by category.",
   "frontend/src/pages/About.tsx": "About page describing mission, approach, and who the site serves with clear disclaimer about educational purpose.",
-  "frontend/src/pages/Contact.tsx": "Contact page displaying India Support Contact section with email (mailto link) and Instagram handle (external link), replacing the previous contact form.",
+  "frontend/src/pages/Contact.tsx": "Contact page displaying India Support Contact section with corrected email (awarenessoveraddictionofficial@gmail.com) as both mailto link and visible text, plus Instagram handle link.",
   "frontend/src/content/education.ts": "Centralized educational content data structure with all six core sections (What Addiction Is, Signs & Risk Factors, Recovery Basics, How to Support, Relapse, FAQ).",
   "frontend/src/content/resources.ts": "Curated external resources data including crisis hotlines, support groups, treatment finders, and educational websites with emergency disclaimers.",
   "frontend/src/index.css": "Global styles with warm earth-tone OKLCH color system (terracotta primary, sage secondary) for both light and dark modes, avoiding blue/purple.",

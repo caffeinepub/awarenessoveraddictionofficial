@@ -1,13 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Replace the Contact page with an India-specific support contact section showing only email and Instagram.
+**Goal:** Update the Contact page (India Support Contact) email address to awarenessoveraddictionofficial@gmail.com.
 
 **Planned changes:**
-- Remove the existing Contact page content, including the full contact form (Name, Email, Subject, Message) and submit button.
-- Add a single section titled "India Support Contact" displaying:
-  - Email: awarenessoveraddictionoffial@gmail.com as a clickable `mailto:` link
-  - Instagram: awarenessoveraddictionofficial linking to https://instagram.com/awarenessoveraddictionofficial (opens in a new tab)
-- Ensure no phone number appears anywhere on the Contact page and all user-facing text remains in English.
+- On `/contact`, replace the currently displayed email text with `awarenessoveraddictionofficial@gmail.com`.
+- On `/contact`, update the email link target to `mailto:awarenessoveraddictionofficial@gmail.com`.
 
-**User-visible outcome:** Visiting `/contact` shows an "India Support Contact" section with a clickable email link and an Instagram link, with no contact form and no phone number displayed.
+**User-visible outcome:** Visitors to the Contact page see the updated email address and can click it to email `awarenessoveraddictionofficial@gmail.com`.

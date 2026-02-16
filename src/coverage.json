@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-15T14:52:24.111Z",
+  "generatedAt": "2026-02-16T06:00:42.795Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -11,8 +11,8 @@
     "implemented": 1,
     "items": [
       {
-        "id": "REQ-7",
-        "summary": "Replace the existing Contact page content (including the contact form) with a single section titled \"India Support Contact\" that displays only the provided email address and Instagram handle, and does not display any phone number.",
+        "id": "REQ-1",
+        "summary": "Update the email address shown on the existing Contact page (India Support Contact) to exactly \"awarenessoveraddictionofficial@gmail.com\", including both the visible text and the mailto: link.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/src/pages/Contact.tsx"
@@ -25,7 +25,6 @@
   },
   "changedFiles": [
     "build-request.json",
-    "build-template/README.md",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",

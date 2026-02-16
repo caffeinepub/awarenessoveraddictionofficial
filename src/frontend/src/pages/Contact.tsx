@@ -25,10 +25,10 @@ export default function Contact() {
               <div className="space-y-1">
                 <p className="font-medium text-foreground">Email</p>
                 <a
-                  href="mailto:awarenessoveraddictionoffial@gmail.com"
+                  href="mailto:awarenessoveraddictionofficial@gmail.com"
                   className="text-primary hover:underline break-all"
                 >
-                  awarenessoveraddictionoffial@gmail.com
+                  awarenessoveraddictionofficial@gmail.com
                 </a>
               </div>
             </div>
