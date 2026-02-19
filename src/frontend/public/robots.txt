@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://awarenessoveraddictionofficial.com/sitemap.xml

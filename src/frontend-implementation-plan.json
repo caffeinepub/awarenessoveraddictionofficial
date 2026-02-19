@@ -1,21 +1,22 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Update Contact page email address",
+  "title": "Hide login icon while keeping authentication functional",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Fix the Contact page (India Support Contact) email text and mailto link to use awarenessoveraddictionofficial@gmail.com exactly.",
+      "summary": "Hide the login icon/button from the SiteHeader component while preserving all Internet Identity authentication functionality in the background",
       "acceptanceCriteria": [
-        "On /contact, the displayed email text is \"awarenessoveraddictionofficial@gmail.com\" (no typos).",
-        "On /contact, clicking the email link uses href=\"mailto:awarenessoveraddictionofficial@gmail.com\".",
-        "No phone number is added to the Contact page."
+        "The LoginButton component is not visible in the site header",
+        "Internet Identity authentication continues to work in the background",
+        "Admin functionality remains accessible for authenticated admin users",
+        "No authentication-related errors occur from hiding the UI element"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/Contact.tsx",
+          "path": "frontend/src/components/layout/SiteHeader.tsx",
           "operation": "modify",
-          "description": "Update the email anchor so both the visible email text and the href mailto value are exactly \"awarenessoveraddictionofficial@gmail.com\" (fixing the current misspelling), without adding any phone number or changing the Instagram link/text."
+          "description": "Remove the LoginButton component from the header's visual rendering by commenting out or conditionally hiding the <LoginButton /> JSX element. Keep all authentication hooks (useInternetIdentity, useIsCallerAdmin) and state management intact. Preserve the conditional admin link logic that depends on isAuthenticated and isAdmin states. The authentication system will continue functioning in the background through the existing hooks, allowing admin users to access admin routes while the login UI remains hidden from all users."
         }
       ]
     }

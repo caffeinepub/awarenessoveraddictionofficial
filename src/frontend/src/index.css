@@ -101,4 +101,21 @@
     html {
         scroll-behavior: smooth;
     }
+
+    /* Form field focus states for better accessibility */
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible {
+        @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+    }
+
+    /* Ensure form labels are readable */
+    label {
+        @apply text-sm font-medium leading-none;
+    }
+
+    /* Form validation message styling */
+    .form-error {
+        @apply text-sm font-medium text-destructive;
+    }
 }

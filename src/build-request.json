@@ -1,50 +1,43 @@
 {
   "kind": "build_request",
-  "title": "Update Contact page email to awarenessoveraddictionofficial@gmail.com",
+  "title": "Hide login icon while keeping authentication functional",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the email address shown on the existing Contact page (India Support Contact) to exactly \"awarenessoveraddictionofficial@gmail.com\", including both the visible text and the mailto: link.",
+      "text": "Hide the login icon/button from the SiteHeader component while preserving all Internet Identity authentication functionality in the background",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "recent-15",
-          "recent-16"
+          "msg-recent"
         ],
         "quotes": [
-          "change email to this awarenessoveraddictionofficial@gmail.com",
-          "build"
+          "remove login icon",
+          "just hide the icon while keeping the authentication system"
         ]
       },
       "acceptanceCriteria": [
-        "On /contact, the displayed email text is \"awarenessoveraddictionofficial@gmail.com\" (no typos).",
-        "On /contact, clicking the email link uses href=\"mailto:awarenessoveraddictionofficial@gmail.com\".",
-        "No phone number is added to the Contact page."
+        "The LoginButton component is not visible in the site header",
+        "Internet Identity authentication continues to work in the background",
+        "Admin functionality remains accessible for authenticated admin users",
+        "No authentication-related errors occur from hiding the UI element"
       ]
     }
   ],
   "constraints": [
-    "Do not modify any files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or anything in frontend/src/components/ui.",
-    "Keep all user-facing text in English."
+    "Do not remove or modify the Internet Identity authentication system",
+    "Do not change the LoginButton component implementation itself",
+    "Do not modify admin access control logic or authorization checks",
+    "Preserve all authentication hooks and backend integration"
   ],
   "nonGoals": [
-    "Do not add or change any phone number on the Contact page.",
-    "Do not implement backend persistence or a contact form submission flow.",
-    "Do not change Instagram handle/link unless explicitly requested."
+    "Removing the Internet Identity authentication system",
+    "Changing how authentication works",
+    "Modifying the LoginButton component code",
+    "Removing admin-related functionality"
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
-  },
-  "userProfileUpdate": {
-    "goalsToAdd": [],
-    "goalsToRemove": [],
-    "preferencesToAdd": [],
-    "preferencesToRemove": [],
-    "miscToAdd": [],
-    "miscToRemove": [],
-    "fieldsToSet": {},
-    "fieldsToDelete": []
   }
 }

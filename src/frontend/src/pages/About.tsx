@@ -5,6 +5,17 @@ export default function About() {
   return (
     <div className="w-full bg-background py-12 md:py-16">
       <div className="container mx-auto max-w-4xl px-4">
+        {/* Banner Image */}
+        <div className="mb-12 overflow-hidden rounded-lg">
+          <img
+            src="/assets/generated/aaoa-about-banner.dim_1600x900.png"
+            alt="About Awareness Over Addiction - Supporting recovery through education and compassion"
+            width={1600}
+            height={900}
+            className="h-auto w-full"
+          />
+        </div>
+
         <div className="mb-12">
           <h1 className="mb-4 text-4xl font-bold tracking-tight text-foreground md:text-5xl">
             About Us
@@ -12,6 +23,13 @@ export default function About() {
           <p className="text-lg text-muted-foreground">
             Awareness Over Addiction Official is dedicated to providing compassionate,
             evidence-based information about addiction and recovery.
+          </p>
+        </div>
+
+        {/* Founder Information */}
+        <div className="mb-12 rounded-lg border border-border bg-card p-6 text-center shadow-sm">
+          <p className="text-lg font-semibold text-foreground">
+            Founded by Ujjwal Arora in March 2025
           </p>
         </div>
 

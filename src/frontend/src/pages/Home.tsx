@@ -1,13 +1,13 @@
-import { Link } from '@tanstack/react-router';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Heart, Users, BookOpen, Phone } from 'lucide-react';
+import { Calendar, Users, BookOpen, Phone } from 'lucide-react';
+import SeminarRegistrationForm from '@/components/seminar/SeminarRegistrationForm';
 
 export default function Home() {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 to-background">
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary/10 to-background">
         <div className="container mx-auto max-w-7xl px-4 py-16 md:py-24">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="flex flex-col justify-center space-y-6">
@@ -15,31 +15,30 @@ export default function Home() {
                 Awareness Over Addiction
               </h1>
               <p className="text-lg text-muted-foreground md:text-xl">
-                Understanding addiction is the first step toward recovery. We're here to provide
-                compassionate, evidence-based information to support you or your loved ones on the
-                journey to healing.
+                Join us for an educational seminar focused on raising awareness about addiction and
+                supporting recovery in our communities.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Link to="/resources">
+                <a href="#register">
                   <Button size="lg" className="w-full sm:w-auto">
-                    <Phone className="mr-2 h-5 w-5" />
-                    Get Help Now
+                    <Calendar className="mr-2 h-5 w-5" />
+                    Register Now
                   </Button>
-                </Link>
-                <Link to="/what-addiction-is">
+                </a>
+                <a href="#about-seminar">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto">
                     <BookOpen className="mr-2 h-5 w-5" />
                     Learn More
                   </Button>
-                </Link>
+                </a>
               </div>
             </div>
             <div className="flex items-center justify-center">
               <img
                 src="/assets/generated/aaoa-hero.dim_1600x900.png"
-                alt="Hope and recovery illustration"
-                width={800}
-                height={450}
+                alt="Awareness Over Addiction Seminar"
+                width={1600}
+                height={900}
                 className="h-auto w-full max-w-2xl rounded-lg shadow-lg"
               />
             </div>
@@ -47,106 +46,86 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Key Features */}
-      <section className="bg-background py-16 md:py-24">
+      {/* About Seminar Section */}
+      <section id="about-seminar" className="bg-background py-16 md:py-24">
         <div className="container mx-auto max-w-7xl px-4">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              How We Can Help
+              About the Seminar
             </h2>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              Access comprehensive resources designed to educate, support, and empower.
+              An educational program designed to increase understanding and reduce stigma around addiction.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-3">
             <Card className="transition-shadow hover:shadow-md">
               <CardHeader>
                 <BookOpen className="mb-2 h-10 w-10 text-primary" />
-                <CardTitle>Education</CardTitle>
+                <CardTitle>Educational Focus</CardTitle>
                 <CardDescription>
-                  Learn about addiction, its causes, and how it affects individuals and families.
+                  Learn about the science of addiction, its impact on individuals and families, and
+                  evidence-based approaches to recovery.
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <Link to="/what-addiction-is">
-                  <Button variant="link" className="p-0">
-                    Explore →
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="transition-shadow hover:shadow-md">
-              <CardHeader>
-                <Heart className="mb-2 h-10 w-10 text-primary" />
-                <CardTitle>Recovery</CardTitle>
-                <CardDescription>
-                  Discover the path to recovery and what treatment options are available.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link to="/recovery-basics">
-                  <Button variant="link" className="p-0">
-                    Learn More →
-                  </Button>
-                </Link>
-              </CardContent>
             </Card>
 
             <Card className="transition-shadow hover:shadow-md">
               <CardHeader>
                 <Users className="mb-2 h-10 w-10 text-primary" />
-                <CardTitle>Support</CardTitle>
+                <CardTitle>Community Support</CardTitle>
                 <CardDescription>
-                  Find guidance on how to support someone struggling with addiction.
+                  Connect with others who are committed to supporting recovery and building healthier
+                  communities through awareness.
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <Link to="/how-to-support-someone">
-                  <Button variant="link" className="p-0">
-                    Get Guidance →
-                  </Button>
-                </Link>
-              </CardContent>
             </Card>
 
             <Card className="transition-shadow hover:shadow-md">
               <CardHeader>
                 <Phone className="mb-2 h-10 w-10 text-primary" />
-                <CardTitle>Resources</CardTitle>
+                <CardTitle>Resources & Help</CardTitle>
                 <CardDescription>
-                  Access helplines, treatment centers, and emergency support services.
+                  Access information about local support services, treatment options, and ways to get
+                  involved in advocacy efforts.
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <Link to="/resources">
-                  <Button variant="link" className="p-0">
-                    Find Help →
-                  </Button>
-                </Link>
-              </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
+      {/* Registration Section */}
+      <section id="register" className="bg-primary/5 py-16 md:py-24">
+        <div className="container mx-auto max-w-3xl px-4">
+          <div className="mb-8 text-center">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              Register for the Seminar
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Fill out the form below to register for our Awareness Over Addiction seminar.
+            </p>
+          </div>
+          <SeminarRegistrationForm />
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="bg-primary/5 py-16 md:py-24">
+      <section className="bg-background py-16 md:py-24">
         <div className="container mx-auto max-w-4xl px-4 text-center">
           <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            You're Not Alone
+            Together We Can Make a Difference
           </h2>
           <p className="mb-8 text-lg text-muted-foreground">
-            Recovery is possible, and help is available. Whether you're seeking information for
-            yourself or a loved one, we're here to support you every step of the way.
+            Join us in raising awareness and supporting those affected by addiction. Your participation
+            helps build stronger, more informed communities.
           </p>
-          <Link to="/resources">
+          <a href="#register">
             <Button size="lg">
-              <Phone className="mr-2 h-5 w-5" />
-              Get Help Now
+              <Calendar className="mr-2 h-5 w-5" />
+              Register Today
             </Button>
-          </Link>
+          </a>
         </div>
       </section>
     </div>

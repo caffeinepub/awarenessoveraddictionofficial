@@ -1,10 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Update the Contact page (India Support Contact) email address to awarenessoveraddictionofficial@gmail.com.
+**Goal:** Hide the login icon from the site header while maintaining full Internet Identity authentication functionality in the background.
 
 **Planned changes:**
-- On `/contact`, replace the currently displayed email text with `awarenessoveraddictionofficial@gmail.com`.
-- On `/contact`, update the email link target to `mailto:awarenessoveraddictionofficial@gmail.com`.
+- Hide the LoginButton component in the SiteHeader so it's not visible to users
+- Preserve all Internet Identity authentication logic and hooks
+- Ensure admin functionality remains accessible for authenticated users
 
-**User-visible outcome:** Visitors to the Contact page see the updated email address and can click it to email `awarenessoveraddictionofficial@gmail.com`.
+**User-visible outcome:** The login icon will no longer be visible in the site header, but authentication and admin features will continue to work normally in the background.

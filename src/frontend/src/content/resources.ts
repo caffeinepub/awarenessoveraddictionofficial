@@ -2,6 +2,7 @@ export interface Resource {
   name: string;
   description: string;
   url: string;
+  phone?: string;
   category: 'crisis' | 'treatment' | 'support' | 'information';
 }
 
@@ -15,13 +16,15 @@ export const resources: Resource[] = [
     description:
       'Free, confidential support 24/7 for people in distress, prevention and crisis resources.',
     url: 'https://988lifeline.org/',
+    phone: '988',
     category: 'crisis',
   },
   {
     name: 'SAMHSA National Helpline',
     description:
-      'Free, confidential, 24/7 treatment referral and information service (in English and Spanish) for individuals and families facing mental health and/or substance use disorders. Call 1-800-662-4357.',
+      'Free, confidential, 24/7 treatment referral and information service (in English and Spanish) for individuals and families facing mental health and/or substance use disorders.',
     url: 'https://www.samhsa.gov/find-help/national-helpline',
+    phone: '1-800-662-4357',
     category: 'crisis',
   },
   {
@@ -29,6 +32,7 @@ export const resources: Resource[] = [
     description:
       'Free, 24/7 support for those in crisis. Text HOME to 741741 to connect with a trained crisis counselor.',
     url: 'https://www.crisistextline.org/',
+    phone: '741741',
     category: 'crisis',
   },
   {

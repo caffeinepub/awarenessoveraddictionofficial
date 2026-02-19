@@ -14,6 +14,17 @@ export default function Resources() {
   return (
     <div className="w-full bg-background py-12 md:py-16">
       <div className="container mx-auto max-w-5xl px-4">
+        {/* Banner Image */}
+        <div className="mb-12 overflow-hidden rounded-lg">
+          <img
+            src="/assets/generated/aaoa-resources-banner.dim_1600x900.png"
+            alt="Resources for addiction support and recovery - Help is available"
+            width={1600}
+            height={900}
+            className="h-auto w-full"
+          />
+        </div>
+
         <div className="mb-8">
           <h1 className="mb-4 text-4xl font-bold tracking-tight text-foreground md:text-5xl">
             Get Help Now
@@ -34,26 +45,42 @@ export default function Resources() {
         {/* Crisis Resources */}
         <section className="mb-12">
           <div className="mb-6">
-            <h2 className="mb-2 text-2xl font-bold text-foreground">Crisis Support</h2>
+            <h2 className="mb-2 text-2xl font-bold text-foreground">Crisis & Emergency Support</h2>
             <p className="text-muted-foreground">{crisisGuidance}</p>
           </div>
+
           <div className="grid gap-4 md:grid-cols-2">
             {crisisResources.map((resource, index) => (
-              <Card key={index} className="transition-shadow hover:shadow-md">
+              <Card key={index} className="border-destructive/50">
                 <CardHeader>
-                  <CardTitle className="flex items-start justify-between">
-                    <span>{resource.name}</span>
-                    <Phone className="h-5 w-5 text-primary" />
+                  <CardTitle className="flex items-center gap-2">
+                    <Phone className="h-5 w-5 text-destructive" />
+                    {resource.name}
                   </CardTitle>
                   <CardDescription>{resource.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <a href={resource.url} target="_blank" rel="noopener noreferrer">
-                    <Button variant="default" className="w-full">
-                      Visit Resource
-                      <ExternalLink className="ml-2 h-4 w-4" />
-                    </Button>
-                  </a>
+                <CardContent className="space-y-2">
+                  {resource.phone && (
+                    <div>
+                      <p className="text-sm font-medium text-muted-foreground">Phone:</p>
+                      <a
+                        href={`tel:${resource.phone}`}
+                        className="text-lg font-semibold text-foreground hover:text-primary"
+                      >
+                        {resource.phone}
+                      </a>
+                    </div>
+                  )}
+                  {resource.url && (
+                    <a
+                      href={resource.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                    >
+                      Visit Website <ExternalLink className="h-3 w-3" />
+                    </a>
+                  )}
                 </CardContent>
               </Card>
             ))}
@@ -70,20 +97,25 @@ export default function Resources() {
               Connect with others who understand your journey through peer support groups.
             </p>
           </div>
+
           <div className="grid gap-4 md:grid-cols-2">
             {supportResources.map((resource, index) => (
-              <Card key={index} className="transition-shadow hover:shadow-md">
+              <Card key={index}>
                 <CardHeader>
                   <CardTitle>{resource.name}</CardTitle>
                   <CardDescription>{resource.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <a href={resource.url} target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" className="w-full">
-                      Learn More
-                      <ExternalLink className="ml-2 h-4 w-4" />
-                    </Button>
-                  </a>
+                  {resource.url && (
+                    <a
+                      href={resource.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                    >
+                      Visit Website <ExternalLink className="h-3 w-3" />
+                    </a>
+                  )}
                 </CardContent>
               </Card>
             ))}
@@ -92,28 +124,44 @@ export default function Resources() {
 
         <Separator className="my-12" />
 
-        {/* Treatment Resources */}
+        {/* Treatment Finders */}
         <section className="mb-12">
           <div className="mb-6">
             <h2 className="mb-2 text-2xl font-bold text-foreground">Find Treatment</h2>
             <p className="text-muted-foreground">
-              Locate professional treatment facilities and programs in your area.
+              Locate treatment facilities and services in your area.
             </p>
           </div>
+
           <div className="grid gap-4 md:grid-cols-2">
             {treatmentResources.map((resource, index) => (
-              <Card key={index} className="transition-shadow hover:shadow-md">
+              <Card key={index}>
                 <CardHeader>
                   <CardTitle>{resource.name}</CardTitle>
                   <CardDescription>{resource.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <a href={resource.url} target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" className="w-full">
-                      Find Treatment
-                      <ExternalLink className="ml-2 h-4 w-4" />
-                    </Button>
-                  </a>
+                <CardContent className="space-y-2">
+                  {resource.phone && (
+                    <div>
+                      <p className="text-sm font-medium text-muted-foreground">Phone:</p>
+                      <a
+                        href={`tel:${resource.phone}`}
+                        className="text-lg font-semibold text-foreground hover:text-primary"
+                      >
+                        {resource.phone}
+                      </a>
+                    </div>
+                  )}
+                  {resource.url && (
+                    <a
+                      href={resource.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                    >
+                      Visit Website <ExternalLink className="h-3 w-3" />
+                    </a>
+                  )}
                 </CardContent>
               </Card>
             ))}
@@ -122,30 +170,33 @@ export default function Resources() {
 
         <Separator className="my-12" />
 
-        {/* Information Resources */}
+        {/* Educational Resources */}
         <section>
           <div className="mb-6">
-            <h2 className="mb-2 text-2xl font-bold text-foreground">
-              Educational Resources
-            </h2>
+            <h2 className="mb-2 text-2xl font-bold text-foreground">Educational Resources</h2>
             <p className="text-muted-foreground">
-              Access evidence-based information about addiction, treatment, and recovery.
+              Learn more about addiction, treatment, and recovery from trusted sources.
             </p>
           </div>
+
           <div className="grid gap-4 md:grid-cols-2">
             {informationResources.map((resource, index) => (
-              <Card key={index} className="transition-shadow hover:shadow-md">
+              <Card key={index}>
                 <CardHeader>
                   <CardTitle>{resource.name}</CardTitle>
                   <CardDescription>{resource.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <a href={resource.url} target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" className="w-full">
-                      Visit Website
-                      <ExternalLink className="ml-2 h-4 w-4" />
-                    </Button>
-                  </a>
+                  {resource.url && (
+                    <a
+                      href={resource.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                    >
+                      Visit Website <ExternalLink className="h-3 w-3" />
+                    </a>
+                  )}
                 </CardContent>
               </Card>
             ))}

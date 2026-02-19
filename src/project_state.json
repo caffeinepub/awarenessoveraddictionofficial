@@ -1,45 +1,22 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Website project for Awareness Over Addiction, including SEO sitemap support, domain setup planning, and contact page updates.",
-  "architectural_notes": [
-    "Provide sitemap.xml for search engines and a visible sitemap page within the site navigation/URLs.",
-    "Project/site naming and domain targeting is awarenessoveraddictionofficial.com."
-  ],
+  "summary": "New project",
+  "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-update-the-email-address-shown-on-the-existing-contact-page-india-support-contact-to-exactly-awarenessoveraddictionofficial-gmail-com-including-both-the-visible-text-and-the-mailto-link",
-      "title": "Update the email address shown on the existing Contact page (India Support Contact) to exactly \"awarenessoveraddictionofficial@gmail.com\", including both the visible text and the mailto: link.",
+      "id": "feature-hide-the-login-icon-button-from-the-siteheader-component-while-preserving-all-internet-identity-authentication-functionality-in-the-background",
+      "title": "Hide the login icon/button from the SiteHeader component while preserving all Internet Identity authentication functionality in the background",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     }
   ],
-  "new_feature_requests": [
-    {
-      "id": "AR-1",
-      "summary": "Add both an XML sitemap (sitemap.xml) for Google and a visible sitemap page listing site pages",
-      "reqIds": [],
-      "status": "in_progress"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Support connecting a custom domain (awarenessoveraddictionofficial.com) and provide guidance/options for free domain alternatives",
-      "reqIds": [],
-      "status": "in_progress"
-    },
-    {
-      "id": "AR-3",
-      "summary": "Update the contact email on the existing contact page to awarenessoveraddictionofficial@gmail.com",
-      "reqIds": [],
-      "status": "in_progress"
-    }
-  ],
-  "gameProjectType": "none",
-  "projectName": "awarenessoveraddictionofficial.com",
+  "new_feature_requests": [],
+  "projectName": "Hide login icon while keeping authentication functional",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

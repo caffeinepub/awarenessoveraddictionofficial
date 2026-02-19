@@ -2,11 +2,18 @@ import { Link, useRouterState } from '@tanstack/react-router';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { useInternetIdentity } from '@/hooks/useInternetIdentity';
+import { useIsCallerAdmin } from '@/hooks/useAdminSubmissions';
 
 export default function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const routerState = useRouterState();
   const currentPath = routerState.location.pathname;
+  const { identity } = useInternetIdentity();
+  const { data: isAdmin, isLoading: isAdminLoading } = useIsCallerAdmin();
+
+  const isAuthenticated = !!identity;
+  const showAdminLink = isAuthenticated && isAdmin && !isAdminLoading;
 
   const navLinks = [
     { href: '/what-addiction-is', label: 'What Addiction Is' },
@@ -50,6 +57,18 @@ export default function SiteHeader() {
               {link.label}
             </Link>
           ))}
+          {showAdminLink && (
+            <Link
+              to="/admin/submissions"
+              className={`rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground ${
+                currentPath === '/admin/submissions'
+                  ? 'bg-accent text-accent-foreground'
+                  : 'text-muted-foreground'
+              }`}
+            >
+              Admin
+            </Link>
+          )}
           <Link to="/resources">
             <Button variant="default" size="sm" className="ml-2">
               Get Help Now
@@ -89,6 +108,19 @@ export default function SiteHeader() {
                 {link.label}
               </Link>
             ))}
+            {showAdminLink && (
+              <Link
+                to="/admin/submissions"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground ${
+                  currentPath === '/admin/submissions'
+                    ? 'bg-accent text-accent-foreground'
+                    : 'text-muted-foreground'
+                }`}
+              >
+                Admin
+              </Link>
+            )}
             <Link to="/resources" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="default" size="sm" className="mt-2 w-full">
                 Get Help Now

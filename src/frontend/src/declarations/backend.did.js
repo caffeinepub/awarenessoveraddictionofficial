@@ -8,10 +8,100 @@
 
 import { IDL } from '@icp-sdk/core/candid';
 
-export const idlService = IDL.Service({});
+export const UserRole = IDL.Variant({
+  'admin' : IDL.Null,
+  'user' : IDL.Null,
+  'guest' : IDL.Null,
+});
+export const SeminarFormValues = IDL.Record({
+  'additionalSessions' : IDL.Text,
+  'duration' : IDL.Text,
+  'organizerEmail' : IDL.Text,
+  'expectedAttendance' : IDL.Nat,
+  'seminarTitle' : IDL.Text,
+  'equipmentRequirements' : IDL.Text,
+  'description' : IDL.Text,
+  'organizerName' : IDL.Text,
+  'questionsOrComments' : IDL.Text,
+  'targetAudience' : IDL.Text,
+  'pricing' : IDL.Text,
+  'preferredDate' : IDL.Text,
+  'paymentConsent' : IDL.Bool,
+  'location' : IDL.Text,
+  'timeZone' : IDL.Text,
+  'privacyConsent' : IDL.Bool,
+  'record' : IDL.Bool,
+});
+export const UserProfile = IDL.Record({ 'name' : IDL.Text });
+
+export const idlService = IDL.Service({
+  '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
+  'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
+  'getAllSubmissions' : IDL.Func(
+      [],
+      [IDL.Vec(IDL.Tuple(IDL.Principal, SeminarFormValues))],
+      ['query'],
+    ),
+  'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
+  'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
+  'getUserProfile' : IDL.Func(
+      [IDL.Principal],
+      [IDL.Opt(UserProfile)],
+      ['query'],
+    ),
+  'isCallerAdmin' : IDL.Func([], [IDL.Bool], ['query']),
+  'saveCallerUserProfile' : IDL.Func([UserProfile], [], []),
+  'submitForm' : IDL.Func([SeminarFormValues], [], []),
+});
 
 export const idlInitArgs = [];
 
-export const idlFactory = ({ IDL }) => { return IDL.Service({}); };
+export const idlFactory = ({ IDL }) => {
+  const UserRole = IDL.Variant({
+    'admin' : IDL.Null,
+    'user' : IDL.Null,
+    'guest' : IDL.Null,
+  });
+  const SeminarFormValues = IDL.Record({
+    'additionalSessions' : IDL.Text,
+    'duration' : IDL.Text,
+    'organizerEmail' : IDL.Text,
+    'expectedAttendance' : IDL.Nat,
+    'seminarTitle' : IDL.Text,
+    'equipmentRequirements' : IDL.Text,
+    'description' : IDL.Text,
+    'organizerName' : IDL.Text,
+    'questionsOrComments' : IDL.Text,
+    'targetAudience' : IDL.Text,
+    'pricing' : IDL.Text,
+    'preferredDate' : IDL.Text,
+    'paymentConsent' : IDL.Bool,
+    'location' : IDL.Text,
+    'timeZone' : IDL.Text,
+    'privacyConsent' : IDL.Bool,
+    'record' : IDL.Bool,
+  });
+  const UserProfile = IDL.Record({ 'name' : IDL.Text });
+  
+  return IDL.Service({
+    '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
+    'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
+    'getAllSubmissions' : IDL.Func(
+        [],
+        [IDL.Vec(IDL.Tuple(IDL.Principal, SeminarFormValues))],
+        ['query'],
+      ),
+    'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
+    'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
+    'getUserProfile' : IDL.Func(
+        [IDL.Principal],
+        [IDL.Opt(UserProfile)],
+        ['query'],
+      ),
+    'isCallerAdmin' : IDL.Func([], [IDL.Bool], ['query']),
+    'saveCallerUserProfile' : IDL.Func([UserProfile], [], []),
+    'submitForm' : IDL.Func([SeminarFormValues], [], []),
+  });
+};
 
 export const init = ({ IDL }) => { return []; };

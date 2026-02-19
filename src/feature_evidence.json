@@ -2,17 +2,18 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-email-address-shown-on-the-existing-contact-page-india-support-contact-to-exactly-awarenessoveraddictionofficial-gmail-com-including-both-the-visible-text-and-the-mailto-link",
-      "featureTitle": "Update the email address shown on the existing Contact page (India Support Contact) to exactly \"awarenessoveraddictionofficial@gmail.com\", including both the visible text and the mailto: link.",
+      "featureId": "feature-hide-the-login-icon-button-from-the-siteheader-component-while-preserving-all-internet-identity-authentication-functionality-in-the-background",
+      "featureTitle": "Hide the login icon/button from the SiteHeader component while preserving all Internet Identity authentication functionality in the background",
       "files": [
-        "frontend/src/pages/Contact.tsx"
+        "frontend/src/components/layout/SiteHeader.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
         "build-template-react@1.0.0",
         "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
       ],
       "testIds": [
         "REQ-1"

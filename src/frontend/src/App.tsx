@@ -10,6 +10,7 @@ import Faq from './pages/Faq';
 import Resources from './pages/Resources';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import AdminSubmissions from './pages/AdminSubmissions';
 
 const rootRoute = createRootRoute({
   component: SiteLayout,
@@ -75,6 +76,12 @@ const contactRoute = createRoute({
   component: Contact,
 });
 
+const adminSubmissionsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/admin/submissions',
+  component: AdminSubmissions,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   whatAddictionIsRoute,
@@ -86,6 +93,7 @@ const routeTree = rootRoute.addChildren([
   resourcesRoute,
   aboutRoute,
   contactRoute,
+  adminSubmissionsRoute,
 ]);
 
 const router = createRouter({ routeTree });
