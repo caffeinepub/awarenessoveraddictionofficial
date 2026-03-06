@@ -1,7 +1,13 @@
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calendar, Users, BookOpen, Phone } from 'lucide-react';
-import SeminarRegistrationForm from '@/components/seminar/SeminarRegistrationForm';
+import SeminarRegistrationForm from "@/components/seminar/SeminarRegistrationForm";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { BookOpen, Calendar, Phone, Users } from "lucide-react";
 
 export default function Home() {
   return (
@@ -15,8 +21,8 @@ export default function Home() {
                 Awareness Over Addiction
               </h1>
               <p className="text-lg text-muted-foreground md:text-xl">
-                Join us for an educational seminar focused on raising awareness about addiction and
-                supporting recovery in our communities.
+                Join us for an educational seminar focused on raising awareness
+                about addiction and supporting recovery in our communities.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <a href="#register">
@@ -26,7 +32,11 @@ export default function Home() {
                   </Button>
                 </a>
                 <a href="#about-seminar">
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="w-full sm:w-auto"
+                  >
                     <BookOpen className="mr-2 h-5 w-5" />
                     Learn More
                   </Button>
@@ -54,7 +64,8 @@ export default function Home() {
               About the Seminar
             </h2>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              An educational program designed to increase understanding and reduce stigma around addiction.
+              An educational program designed to increase understanding and
+              reduce stigma around addiction.
             </p>
           </div>
 
@@ -64,8 +75,9 @@ export default function Home() {
                 <BookOpen className="mb-2 h-10 w-10 text-primary" />
                 <CardTitle>Educational Focus</CardTitle>
                 <CardDescription>
-                  Learn about the science of addiction, its impact on individuals and families, and
-                  evidence-based approaches to recovery.
+                  Learn about the science of addiction, its impact on
+                  individuals and families, and evidence-based approaches to
+                  recovery.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -75,8 +87,8 @@ export default function Home() {
                 <Users className="mb-2 h-10 w-10 text-primary" />
                 <CardTitle>Community Support</CardTitle>
                 <CardDescription>
-                  Connect with others who are committed to supporting recovery and building healthier
-                  communities through awareness.
+                  Connect with others who are committed to supporting recovery
+                  and building healthier communities through awareness.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -86,8 +98,8 @@ export default function Home() {
                 <Phone className="mb-2 h-10 w-10 text-primary" />
                 <CardTitle>Resources & Help</CardTitle>
                 <CardDescription>
-                  Access information about local support services, treatment options, and ways to get
-                  involved in advocacy efforts.
+                  Access information about local support services, treatment
+                  options, and ways to get involved in advocacy efforts.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -103,10 +115,40 @@ export default function Home() {
               Register for the Seminar
             </h2>
             <p className="text-lg text-muted-foreground">
-              Fill out the form below to register for our Awareness Over Addiction seminar.
+              Fill out the form below to register for our Awareness Over
+              Addiction seminar.
             </p>
           </div>
           <SeminarRegistrationForm />
+        </div>
+      </section>
+
+      {/* Informative Video Section */}
+      <section className="bg-primary/5 py-16 md:py-24">
+        <div className="container mx-auto max-w-4xl px-4">
+          <div className="mb-8 text-center">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              Watch &amp; Learn
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              An informative video to help you understand addiction and the path
+              to recovery.
+            </p>
+          </div>
+          <div
+            className="relative mx-auto overflow-hidden rounded-xl shadow-lg"
+            style={{ paddingTop: "56.25%" }}
+          >
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src="https://www.youtube.com/embed/Gd1rwJjx2LM"
+              title="Awareness Over Addiction - Informative Video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              data-ocid="video.canvas_target"
+            />
+          </div>
         </div>
       </section>
 
@@ -117,8 +159,9 @@ export default function Home() {
             Together We Can Make a Difference
           </h2>
           <p className="mb-8 text-lg text-muted-foreground">
-            Join us in raising awareness and supporting those affected by addiction. Your participation
-            helps build stronger, more informed communities.
+            Join us in raising awareness and supporting those affected by
+            addiction. Your participation helps build stronger, more informed
+            communities.
           </p>
           <a href="#register">
             <Button size="lg">

@@ -1,9 +1,9 @@
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-import { Game3DState } from './types';
-import Player from './entities/Player';
-import Pickups from './entities/Pickups';
-import Obstacles from './entities/Obstacles';
+import { OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import Obstacles from "./entities/Obstacles";
+import Pickups from "./entities/Pickups";
+import Player from "./entities/Player";
+import type { Game3DState } from "./types";
 
 interface ThreeGameCanvasProps {
   gameState: Game3DState;
@@ -16,9 +16,9 @@ export default function ThreeGameCanvas({ gameState }: ThreeGameCanvasProps) {
       shadows
       className="absolute inset-0"
     >
-      <color attach="background" args={['#1a1410']} />
-      <fog attach="fog" args={['#1a1410', 10, 30]} />
-      
+      <color attach="background" args={["#1a1410"]} />
+      <fog attach="fog" args={["#1a1410", 10, 30]} />
+
       <ambientLight intensity={0.4} />
       <directionalLight
         position={[5, 10, 5]}
@@ -28,7 +28,7 @@ export default function ThreeGameCanvas({ gameState }: ThreeGameCanvasProps) {
       />
       <pointLight position={[-5, 5, -5]} intensity={0.3} color="#d4a574" />
 
-      {gameState.status === 'playing' && (
+      {gameState.status === "playing" && (
         <>
           <Player gameState={gameState} />
           <Pickups gameState={gameState} />
@@ -43,7 +43,10 @@ export default function ThreeGameCanvas({ gameState }: ThreeGameCanvasProps) {
       </mesh>
 
       {/* Grid helper for visual reference */}
-      <gridHelper args={[30, 30, '#3a2f2a', '#2a1f1a']} position={[0, 0.01, 0]} />
+      <gridHelper
+        args={[30, 30, "#3a2f2a", "#2a1f1a"]}
+        position={[0, 0.01, 0]}
+      />
 
       <OrbitControls
         enablePan={false}

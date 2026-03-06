@@ -1,22 +1,32 @@
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { CheckCircle2, Loader2 } from 'lucide-react';
-import { useSubmitSeminarRegistration } from '@/hooks/useSubmitSeminarRegistration';
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useSubmitSeminarRegistration } from "@/hooks/useSubmitSeminarRegistration";
+import { CheckCircle2, Loader2 } from "lucide-react";
+import { useState } from "react";
 
 export default function SeminarRegistrationForm() {
   const [formData, setFormData] = useState({
-    name: '',
-    institutionName: '',
-    position: '',
-    date: '',
+    name: "",
+    institutionName: "",
+    position: "",
+    date: "",
   });
   const [showSuccess, setShowSuccess] = useState(false);
 
-  const { mutate: submitRegistration, isPending, error } = useSubmitSeminarRegistration();
+  const {
+    mutate: submitRegistration,
+    isPending,
+    error,
+  } = useSubmitSeminarRegistration();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({
@@ -27,9 +37,14 @@ export default function SeminarRegistrationForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Basic validation
-    if (!formData.name || !formData.institutionName || !formData.position || !formData.date) {
+    if (
+      !formData.name ||
+      !formData.institutionName ||
+      !formData.position ||
+      !formData.date
+    ) {
       return;
     }
 
@@ -37,10 +52,10 @@ export default function SeminarRegistrationForm() {
       onSuccess: () => {
         setShowSuccess(true);
         setFormData({
-          name: '',
-          institutionName: '',
-          position: '',
-          date: '',
+          name: "",
+          institutionName: "",
+          position: "",
+          date: "",
         });
         // Hide success message after 5 seconds
         setTimeout(() => setShowSuccess(false), 5000);
@@ -61,7 +76,8 @@ export default function SeminarRegistrationForm() {
                 Registration Successful!
               </h3>
               <p className="text-muted-foreground">
-                Thank you for registering. We'll be in touch with more details about the seminar.
+                Thank you for registering. We'll be in touch with more details
+                about the seminar.
               </p>
             </div>
             <Button onClick={() => setShowSuccess(false)} variant="outline">
@@ -78,7 +94,8 @@ export default function SeminarRegistrationForm() {
       <CardHeader>
         <CardTitle>Seminar Registration</CardTitle>
         <CardDescription>
-          Please provide your information to register for the Awareness Over Addiction seminar.
+          Please provide your information to register for the Awareness Over
+          Addiction seminar.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -86,7 +103,9 @@ export default function SeminarRegistrationForm() {
           {error && (
             <Alert variant="destructive">
               <AlertDescription>
-                {error instanceof Error ? error.message : 'Failed to submit registration. Please try again.'}
+                {error instanceof Error
+                  ? error.message
+                  : "Failed to submit registration. Please try again."}
               </AlertDescription>
             </Alert>
           )}
@@ -161,7 +180,7 @@ export default function SeminarRegistrationForm() {
                 Submitting...
               </>
             ) : (
-              'Submit Registration'
+              "Submit Registration"
             )}
           </Button>
         </form>

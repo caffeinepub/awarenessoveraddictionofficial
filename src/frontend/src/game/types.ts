@@ -1,6 +1,6 @@
 // Game state types for turn-based decision-making game
 
-export type Difficulty = 'normal' | 'hard';
+export type Difficulty = "normal" | "hard";
 
 export interface GameState {
   turn: number;
@@ -21,19 +21,19 @@ export interface GameState {
     allianceFormed: boolean;
     warDeclared: boolean;
   };
-  phase: 'player-turn' | 'ai-turn' | 'game-over';
-  winner: 'player' | 'ai' | null;
+  phase: "player-turn" | "ai-turn" | "game-over";
+  winner: "player" | "ai" | null;
 }
 
-export type ActionType = 
-  | 'attack' 
-  | 'defend' 
-  | 'gather' 
-  | 'build-shield' 
-  | 'build-weapon' 
-  | 'diplomacy' 
-  | 'sabotage'
-  | 'heal';
+export type ActionType =
+  | "attack"
+  | "defend"
+  | "gather"
+  | "build-shield"
+  | "build-weapon"
+  | "diplomacy"
+  | "sabotage"
+  | "heal";
 
 export interface Action {
   type: ActionType;
@@ -45,7 +45,7 @@ export interface Action {
 
 export interface TurnResult {
   action: ActionType;
-  actor: 'player' | 'ai';
+  actor: "player" | "ai";
   description: string;
   scoreChange: number;
   healthChange: number;

@@ -3,8 +3,8 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/components/ui/accordion';
-import { faqs } from '@/content/faqs';
+} from "@/components/ui/accordion";
+import { faqs } from "@/content/faqs";
 
 export default function Faq() {
   return (
@@ -15,15 +15,18 @@ export default function Faq() {
             Frequently Asked Questions
           </h1>
           <p className="text-lg text-muted-foreground">
-            Find answers to common questions about addiction and recovery. If you don't find what
-            you're looking for, please reach out through our contact page.
+            Find answers to common questions about addiction and recovery. If
+            you don't find what you're looking for, please reach out through our
+            contact page.
           </p>
         </div>
 
         <Accordion type="single" collapsible className="w-full">
-          {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+          {faqs.map((faq) => (
+            <AccordionItem key={faq.question} value={faq.question}>
+              <AccordionTrigger className="text-left">
+                {faq.question}
+              </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 {faq.answer}
               </AccordionContent>

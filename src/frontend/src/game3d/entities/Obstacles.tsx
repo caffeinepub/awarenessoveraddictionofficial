@@ -1,7 +1,7 @@
-import { useRef, useState, useEffect } from 'react';
-import { useFrame } from '@react-three/fiber';
-import { Mesh, Vector3 } from 'three';
-import { Game3DState, ObstacleData } from '../types';
+import { useFrame } from "@react-three/fiber";
+import { useEffect, useRef, useState } from "react";
+import { type Mesh, Vector3 } from "three";
+import type { Game3DState, ObstacleData } from "../types";
 
 interface ObstaclesProps {
   gameState: Game3DState;
@@ -35,7 +35,7 @@ export default function Obstacles({ gameState }: ObstaclesProps) {
   const lastHitTimeRef = useRef(0);
 
   useEffect(() => {
-    if (gameState.status === 'playing') {
+    if (gameState.status === "playing") {
       const initialObstacles: ObstacleData[] = [];
       for (let i = 0; i < 5; i++) {
         const angle = (i / 5) * Math.PI * 2 + Math.PI / 5;
@@ -43,11 +43,7 @@ export default function Obstacles({ gameState }: ObstaclesProps) {
         const speed = 0.02 + Math.random() * 0.02;
         initialObstacles.push({
           id: `obstacle-${i}`,
-          position: [
-            Math.cos(angle) * radius,
-            0.5,
-            Math.sin(angle) * radius,
-          ],
+          position: [Math.cos(angle) * radius, 0.5, Math.sin(angle) * radius],
           velocity: [
             Math.cos(angle + Math.PI / 2) * speed,
             0,
@@ -61,7 +57,7 @@ export default function Obstacles({ gameState }: ObstaclesProps) {
   }, [gameState.status]);
 
   useFrame((state) => {
-    if (gameState.status !== 'playing') return;
+    if (gameState.status !== "playing") return;
 
     const bounds = 12;
     const playerPos = new Vector3(...gameState.playerPosition);
@@ -86,13 +82,16 @@ export default function Obstacles({ gameState }: ObstaclesProps) {
         const obstaclePos = new Vector3(x, y, z);
         const distance = playerPos.distanceTo(obstaclePos);
 
-        if (distance < collisionRadius && currentTime - lastHitTimeRef.current > 1.0) {
+        if (
+          distance < collisionRadius &&
+          currentTime - lastHitTimeRef.current > 1.0
+        ) {
           lastHitTimeRef.current = currentTime;
           gameState.loseLife();
         }
 
         return { ...obstacle, position: [x, y, z] };
-      })
+      }),
     );
   });
 

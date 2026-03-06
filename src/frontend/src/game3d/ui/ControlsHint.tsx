@@ -1,5 +1,5 @@
-import { Card, CardContent } from '@/components/ui/card';
-import { Keyboard } from 'lucide-react';
+import { Card, CardContent } from "@/components/ui/card";
+import { Keyboard } from "lucide-react";
 
 export default function ControlsHint() {
   return (

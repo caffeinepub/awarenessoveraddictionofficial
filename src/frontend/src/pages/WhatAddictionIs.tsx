@@ -1,8 +1,16 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { educationSections } from '@/content/education';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { educationSections } from "@/content/education";
 
 export default function WhatAddictionIs() {
-  const section = educationSections.find((s) => s.slug === 'what-addiction-is')!;
+  const section = educationSections.find(
+    (s) => s.slug === "what-addiction-is",
+  )!;
 
   return (
     <div className="w-full bg-background py-12 md:py-16">
@@ -11,12 +19,14 @@ export default function WhatAddictionIs() {
           <h1 className="mb-4 text-4xl font-bold tracking-tight text-foreground md:text-5xl">
             {section.title}
           </h1>
-          <p className="text-lg text-muted-foreground">{section.content.introduction}</p>
+          <p className="text-lg text-muted-foreground">
+            {section.content.introduction}
+          </p>
         </div>
 
         <div className="space-y-6">
-          {section.content.sections.map((subsection, index) => (
-            <Card key={index}>
+          {section.content.sections.map((subsection) => (
+            <Card key={subsection.heading}>
               <CardHeader>
                 <CardTitle>{subsection.heading}</CardTitle>
               </CardHeader>
@@ -24,8 +34,8 @@ export default function WhatAddictionIs() {
                 <p className="text-muted-foreground">{subsection.content}</p>
                 {subsection.bullets && (
                   <ul className="ml-6 list-disc space-y-2 text-muted-foreground">
-                    {subsection.bullets.map((bullet, i) => (
-                      <li key={i}>{bullet}</li>
+                    {subsection.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
                     ))}
                   </ul>
                 )}

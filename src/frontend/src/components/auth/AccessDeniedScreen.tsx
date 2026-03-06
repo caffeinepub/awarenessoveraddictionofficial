@@ -1,8 +1,14 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { ShieldAlert } from 'lucide-react';
-import { Link } from '@tanstack/react-router';
-import { Button } from '@/components/ui/button';
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Link } from "@tanstack/react-router";
+import { ShieldAlert } from "lucide-react";
 
 export default function AccessDeniedScreen() {
   return (
@@ -20,8 +26,8 @@ export default function AccessDeniedScreen() {
         <CardContent className="space-y-4">
           <Alert>
             <AlertDescription>
-              This area is restricted to administrators only. If you believe you should have access,
-              please contact the site administrator.
+              This area is restricted to administrators only. If you believe you
+              should have access, please contact the site administrator.
             </AlertDescription>
           </Alert>
           <div className="flex justify-center">

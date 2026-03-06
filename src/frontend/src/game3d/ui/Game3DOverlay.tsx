@@ -1,9 +1,15 @@
-import { Game3DState } from '../types';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Heart, Trophy } from 'lucide-react';
-import ControlsHint from './ControlsHint';
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Heart, Trophy } from "lucide-react";
+import type { Game3DState } from "../types";
+import ControlsHint from "./ControlsHint";
 
 interface Game3DOverlayProps {
   gameState: Game3DState;
@@ -13,7 +19,7 @@ export default function Game3DOverlay({ gameState }: Game3DOverlayProps) {
   return (
     <div className="pointer-events-none absolute inset-0 flex flex-col">
       {/* Top HUD */}
-      {gameState.status === 'playing' && (
+      {gameState.status === "playing" && (
         <div className="pointer-events-auto flex items-start justify-between p-4">
           <Card className="bg-background/80 backdrop-blur-sm">
             <CardContent className="flex items-center gap-4 p-4">
@@ -22,13 +28,13 @@ export default function Game3DOverlay({ gameState }: Game3DOverlayProps) {
                 <span className="text-2xl font-bold">{gameState.score}</span>
               </div>
               <div className="flex items-center gap-1">
-                {Array.from({ length: 3 }).map((_, i) => (
+                {Array.from({ length: 3 }, (_, i) => i).map((i) => (
                   <Heart
                     key={i}
                     className={`h-5 w-5 ${
                       i < gameState.lives
-                        ? 'fill-destructive text-destructive'
-                        : 'text-muted-foreground'
+                        ? "fill-destructive text-destructive"
+                        : "text-muted-foreground"
                     }`}
                   />
                 ))}
@@ -41,10 +47,12 @@ export default function Game3DOverlay({ gameState }: Game3DOverlayProps) {
 
       {/* Center content */}
       <div className="pointer-events-auto flex flex-1 items-center justify-center p-4">
-        {gameState.status === 'start' && (
+        {gameState.status === "start" && (
           <Card className="w-full max-w-md bg-background/90 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle className="text-center text-3xl">3D Collection Game</CardTitle>
+              <CardTitle className="text-center text-3xl">
+                3D Collection Game
+              </CardTitle>
               <CardDescription className="text-center text-base">
                 Collect the green spheres while avoiding the red obstacles!
               </CardDescription>
@@ -59,14 +67,18 @@ export default function Game3DOverlay({ gameState }: Game3DOverlayProps) {
                   <li>• You have 3 lives</li>
                 </ul>
               </div>
-              <Button onClick={gameState.startGame} size="lg" className="w-full">
+              <Button
+                onClick={gameState.startGame}
+                size="lg"
+                className="w-full"
+              >
                 Start Game
               </Button>
             </CardContent>
           </Card>
         )}
 
-        {gameState.status === 'gameover' && (
+        {gameState.status === "gameover" && (
           <Card className="w-full max-w-md bg-background/90 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="text-center text-3xl">Game Over</CardTitle>
@@ -81,7 +93,11 @@ export default function Game3DOverlay({ gameState }: Game3DOverlayProps) {
                   Final Score: {gameState.score}
                 </Badge>
               </div>
-              <Button onClick={gameState.restartGame} size="lg" className="w-full">
+              <Button
+                onClick={gameState.restartGame}
+                size="lg"
+                className="w-full"
+              >
                 Play Again
               </Button>
             </CardContent>

@@ -1,17 +1,37 @@
-import { useInternetIdentity } from '@/hooks/useInternetIdentity';
-import { useIsCallerAdmin, useGetAllSubmissions } from '@/hooks/useAdminSubmissions';
-import AccessDeniedScreen from '@/components/auth/AccessDeniedScreen';
-import LoginButton from '@/components/auth/LoginButton';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Badge } from '@/components/ui/badge';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Loader2, Users } from 'lucide-react';
+import AccessDeniedScreen from "@/components/auth/AccessDeniedScreen";
+import LoginButton from "@/components/auth/LoginButton";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import {
+  useGetAllSubmissions,
+  useIsCallerAdmin,
+} from "@/hooks/useAdminSubmissions";
+import { useInternetIdentity } from "@/hooks/useInternetIdentity";
+import { Loader2, Users } from "lucide-react";
 
 export default function AdminSubmissions() {
   const { identity, isInitializing } = useInternetIdentity();
   const { data: isAdmin, isLoading: isAdminLoading } = useIsCallerAdmin();
-  const { data: submissions, isLoading: submissionsLoading, error } = useGetAllSubmissions();
+  const {
+    data: submissions,
+    isLoading: submissionsLoading,
+    error,
+  } = useGetAllSubmissions();
 
   const isAuthenticated = !!identity;
 
@@ -69,7 +89,9 @@ export default function AdminSubmissions() {
       {error && (
         <Alert variant="destructive" className="mb-6">
           <AlertDescription>
-            {error instanceof Error ? error.message : 'Failed to load submissions. Please try again.'}
+            {error instanceof Error
+              ? error.message
+              : "Failed to load submissions. Please try again."}
           </AlertDescription>
         </Alert>
       )}
@@ -83,7 +105,9 @@ export default function AdminSubmissions() {
           <CardHeader>
             <CardTitle>Registrations</CardTitle>
             <CardDescription>
-              <Badge variant="secondary">{submissions.length} total submissions</Badge>
+              <Badge variant="secondary">
+                {submissions.length} total submissions
+              </Badge>
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -99,17 +123,24 @@ export default function AdminSubmissions() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {submissions.map(([principal, form], index) => (
-                    <TableRow key={index}>
-                      <TableCell className="font-medium">{form.organizerName}</TableCell>
+                  {submissions.map(([principal, form]) => (
+                    <TableRow key={principal.toString()}>
+                      <TableCell className="font-medium">
+                        {form.organizerName}
+                      </TableCell>
                       <TableCell>
-                        {form.questionsOrComments.includes('Institution:')
-                          ? form.questionsOrComments.split('Institution:')[1].split(',')[0].trim()
+                        {form.questionsOrComments.includes("Institution:")
+                          ? form.questionsOrComments
+                              .split("Institution:")[1]
+                              .split(",")[0]
+                              .trim()
                           : form.description}
                       </TableCell>
                       <TableCell>{form.targetAudience}</TableCell>
                       <TableCell>{form.preferredDate}</TableCell>
-                      <TableCell className="font-mono text-xs">{principal.toString()}</TableCell>
+                      <TableCell className="font-mono text-xs">
+                        {principal.toString()}
+                      </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -123,7 +154,8 @@ export default function AdminSubmissions() {
             <Users className="mx-auto mb-4 h-12 w-12 text-muted-foreground" />
             <h3 className="mb-2 text-lg font-semibold">No Submissions Yet</h3>
             <p className="text-muted-foreground">
-              Seminar registrations will appear here once users start submitting the form.
+              Seminar registrations will appear here once users start submitting
+              the form.
             </p>
           </CardContent>
         </Card>

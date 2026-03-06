@@ -1,8 +1,8 @@
-import { useRef } from 'react';
-import { useFrame } from '@react-three/fiber';
-import { Mesh } from 'three';
-import { Game3DState } from '../types';
-import { useKeyboardControls } from '../systems/useKeyboardControls';
+import { useFrame } from "@react-three/fiber";
+import { useRef } from "react";
+import type { Mesh } from "three";
+import { useKeyboardControls } from "../systems/useKeyboardControls";
+import type { Game3DState } from "../types";
 
 interface PlayerProps {
   gameState: Game3DState;
@@ -15,7 +15,7 @@ export default function Player({ gameState }: PlayerProps) {
   const bounds = 12;
 
   useFrame(() => {
-    if (!meshRef.current || gameState.status !== 'playing') return;
+    if (!meshRef.current || gameState.status !== "playing") return;
 
     const position = meshRef.current.position;
     let moved = false;

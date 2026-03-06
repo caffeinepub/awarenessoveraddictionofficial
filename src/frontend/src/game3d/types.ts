@@ -1,4 +1,4 @@
-export type GameStatus = 'start' | 'playing' | 'gameover';
+export type GameStatus = "start" | "playing" | "gameover";
 
 export interface Game3DState {
   status: GameStatus;

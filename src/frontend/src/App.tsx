@@ -1,16 +1,21 @@
-import { RouterProvider, createRouter, createRoute, createRootRoute } from '@tanstack/react-router';
-import SiteLayout from './components/layout/SiteLayout';
-import Home from './pages/Home';
-import WhatAddictionIs from './pages/WhatAddictionIs';
-import SignsRiskFactors from './pages/SignsRiskFactors';
-import RecoveryBasics from './pages/RecoveryBasics';
-import HowToSupportSomeone from './pages/HowToSupportSomeone';
-import RelapseNextSteps from './pages/RelapseNextSteps';
-import Faq from './pages/Faq';
-import Resources from './pages/Resources';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import AdminSubmissions from './pages/AdminSubmissions';
+import {
+  RouterProvider,
+  createRootRoute,
+  createRoute,
+  createRouter,
+} from "@tanstack/react-router";
+import SiteLayout from "./components/layout/SiteLayout";
+import About from "./pages/About";
+import AdminSubmissions from "./pages/AdminSubmissions";
+import Contact from "./pages/Contact";
+import Faq from "./pages/Faq";
+import Home from "./pages/Home";
+import HowToSupportSomeone from "./pages/HowToSupportSomeone";
+import RecoveryBasics from "./pages/RecoveryBasics";
+import RelapseNextSteps from "./pages/RelapseNextSteps";
+import Resources from "./pages/Resources";
+import SignsRiskFactors from "./pages/SignsRiskFactors";
+import WhatAddictionIs from "./pages/WhatAddictionIs";
 
 const rootRoute = createRootRoute({
   component: SiteLayout,
@@ -18,67 +23,67 @@ const rootRoute = createRootRoute({
 
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/',
+  path: "/",
   component: Home,
 });
 
 const whatAddictionIsRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/what-addiction-is',
+  path: "/what-addiction-is",
   component: WhatAddictionIs,
 });
 
 const signsRiskFactorsRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/signs-risk-factors',
+  path: "/signs-risk-factors",
   component: SignsRiskFactors,
 });
 
 const recoveryBasicsRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/recovery-basics',
+  path: "/recovery-basics",
   component: RecoveryBasics,
 });
 
 const howToSupportSomeoneRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/how-to-support-someone',
+  path: "/how-to-support-someone",
   component: HowToSupportSomeone,
 });
 
 const relapseNextStepsRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/relapse-next-steps',
+  path: "/relapse-next-steps",
   component: RelapseNextSteps,
 });
 
 const faqRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/faq',
+  path: "/faq",
   component: Faq,
 });
 
 const resourcesRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/resources',
+  path: "/resources",
   component: Resources,
 });
 
 const aboutRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/about',
+  path: "/about",
   component: About,
 });
 
 const contactRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/contact',
+  path: "/contact",
   component: Contact,
 });
 
 const adminSubmissionsRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/admin/submissions',
+  path: "/admin/submissions",
   component: AdminSubmissions,
 });
 
@@ -98,7 +103,7 @@ const routeTree = rootRoute.addChildren([
 
 const router = createRouter({ routeTree });
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface Register {
     router: typeof router;
   }

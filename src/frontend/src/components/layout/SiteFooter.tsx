@@ -1,11 +1,13 @@
-import { Link } from '@tanstack/react-router';
-import { Heart } from 'lucide-react';
-import { Separator } from '@/components/ui/separator';
+import { Separator } from "@/components/ui/separator";
+import { Link } from "@tanstack/react-router";
+import { Heart } from "lucide-react";
 
 export default function SiteFooter() {
   const currentYear = new Date().getFullYear();
   const appIdentifier = encodeURIComponent(
-    typeof window !== 'undefined' ? window.location.hostname : 'awarenessoveraddiction'
+    typeof window !== "undefined"
+      ? window.location.hostname
+      : "awarenessoveraddiction",
   );
 
   return (
@@ -27,7 +29,8 @@ export default function SiteFooter() {
               </span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Supporting recovery through education, compassion, and understanding.
+              Supporting recovery through education, compassion, and
+              understanding.
             </p>
           </div>
 
@@ -66,9 +69,10 @@ export default function SiteFooter() {
           <div className="space-y-4">
             <h3 className="font-semibold text-foreground">Important Notice</h3>
             <p className="text-sm text-muted-foreground">
-              This website provides educational information only and is not a substitute for
-              professional medical advice. If you're experiencing a crisis, please contact your
-              local emergency services immediately.
+              This website provides educational information only and is not a
+              substitute for professional medical advice. If you're experiencing
+              a crisis, please contact your local emergency services
+              immediately.
             </p>
           </div>
         </div>
@@ -76,9 +80,13 @@ export default function SiteFooter() {
         <Separator className="my-8" />
 
         <div className="flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground sm:flex-row">
-          <p>© {currentYear} Awareness Over Addiction Official. All rights reserved.</p>
+          <p>
+            © {currentYear} Awareness Over Addiction Official. All rights
+            reserved.
+          </p>
           <p className="flex items-center gap-1">
-            Built with <Heart className="h-4 w-4 fill-primary text-primary" /> using{' '}
+            Built with <Heart className="h-4 w-4 fill-primary text-primary" />{" "}
+            using{" "}
             <a
               href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${appIdentifier}`}
               target="_blank"

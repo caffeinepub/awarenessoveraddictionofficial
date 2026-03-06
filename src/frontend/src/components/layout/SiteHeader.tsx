@@ -1,9 +1,9 @@
-import { Link, useRouterState } from '@tanstack/react-router';
-import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { useInternetIdentity } from '@/hooks/useInternetIdentity';
-import { useIsCallerAdmin } from '@/hooks/useAdminSubmissions';
+import { Button } from "@/components/ui/button";
+import { useIsCallerAdmin } from "@/hooks/useAdminSubmissions";
+import { useInternetIdentity } from "@/hooks/useInternetIdentity";
+import { Link, useRouterState } from "@tanstack/react-router";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
 export default function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -16,14 +16,14 @@ export default function SiteHeader() {
   const showAdminLink = isAuthenticated && isAdmin && !isAdminLoading;
 
   const navLinks = [
-    { href: '/what-addiction-is', label: 'What Addiction Is' },
-    { href: '/signs-risk-factors', label: 'Signs & Risk Factors' },
-    { href: '/recovery-basics', label: 'Recovery Basics' },
-    { href: '/how-to-support-someone', label: 'How to Support' },
-    { href: '/relapse-next-steps', label: 'Relapse & Next Steps' },
-    { href: '/faq', label: 'FAQ' },
-    { href: '/about', label: 'About' },
-    { href: '/contact', label: 'Contact' },
+    { href: "/what-addiction-is", label: "What Addiction Is" },
+    { href: "/signs-risk-factors", label: "Signs & Risk Factors" },
+    { href: "/recovery-basics", label: "Recovery Basics" },
+    { href: "/how-to-support-someone", label: "How to Support" },
+    { href: "/relapse-next-steps", label: "Relapse & Next Steps" },
+    { href: "/faq", label: "FAQ" },
+    { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
@@ -50,8 +50,8 @@ export default function SiteHeader() {
               to={link.href}
               className={`rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground ${
                 currentPath === link.href
-                  ? 'bg-accent text-accent-foreground'
-                  : 'text-muted-foreground'
+                  ? "bg-accent text-accent-foreground"
+                  : "text-muted-foreground"
               }`}
             >
               {link.label}
@@ -61,9 +61,9 @@ export default function SiteHeader() {
             <Link
               to="/admin/submissions"
               className={`rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground ${
-                currentPath === '/admin/submissions'
-                  ? 'bg-accent text-accent-foreground'
-                  : 'text-muted-foreground'
+                currentPath === "/admin/submissions"
+                  ? "bg-accent text-accent-foreground"
+                  : "text-muted-foreground"
               }`}
             >
               Admin
@@ -78,6 +78,7 @@ export default function SiteHeader() {
 
         {/* Mobile Menu Button */}
         <button
+          type="button"
           className="lg:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
@@ -101,8 +102,8 @@ export default function SiteHeader() {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground ${
                   currentPath === link.href
-                    ? 'bg-accent text-accent-foreground'
-                    : 'text-muted-foreground'
+                    ? "bg-accent text-accent-foreground"
+                    : "text-muted-foreground"
                 }`}
               >
                 {link.label}
@@ -113,9 +114,9 @@ export default function SiteHeader() {
                 to="/admin/submissions"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground ${
-                  currentPath === '/admin/submissions'
-                    ? 'bg-accent text-accent-foreground'
-                    : 'text-muted-foreground'
+                  currentPath === "/admin/submissions"
+                    ? "bg-accent text-accent-foreground"
+                    : "text-muted-foreground"
                 }`}
               >
                 Admin

@@ -1,6 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mail } from 'lucide-react';
-import { SiInstagram } from 'react-icons/si';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Mail } from "lucide-react";
+import { SiInstagram } from "react-icons/si";
 
 export default function Contact() {
   return (
@@ -52,10 +52,13 @@ export default function Contact() {
 
         <div className="mt-8 text-center text-sm text-muted-foreground">
           <p>
-            For immediate help and resources, please visit our{' '}
-            <a href="/resources" className="font-medium text-primary hover:underline">
+            For immediate help and resources, please visit our{" "}
+            <a
+              href="/resources"
+              className="font-medium text-primary hover:underline"
+            >
               Get Help Now
-            </a>{' '}
+            </a>{" "}
             page.
           </p>
         </div>
