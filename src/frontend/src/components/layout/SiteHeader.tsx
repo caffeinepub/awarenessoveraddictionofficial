@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { useIsCallerAdmin } from "@/hooks/useAdminSubmissions";
 import { useInternetIdentity } from "@/hooks/useInternetIdentity";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
@@ -10,10 +9,8 @@ export default function SiteHeader() {
   const routerState = useRouterState();
   const currentPath = routerState.location.pathname;
   const { identity } = useInternetIdentity();
-  const { data: isAdmin, isLoading: isAdminLoading } = useIsCallerAdmin();
 
   const isAuthenticated = !!identity;
-  const showAdminLink = isAuthenticated && isAdmin && !isAdminLoading;
 
   const navLinks = [
     { href: "/what-addiction-is", label: "What Addiction Is" },
@@ -57,7 +54,7 @@ export default function SiteHeader() {
               {link.label}
             </Link>
           ))}
-          {showAdminLink && (
+          {isAuthenticated && (
             <Link
               to="/admin/submissions"
               className={`rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground ${
@@ -109,7 +106,7 @@ export default function SiteHeader() {
                 {link.label}
               </Link>
             ))}
-            {showAdminLink && (
+            {isAuthenticated && (
               <Link
                 to="/admin/submissions"
                 onClick={() => setMobileMenuOpen(false)}
