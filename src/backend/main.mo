@@ -4,13 +4,12 @@ import Runtime "mo:core/Runtime";
 import Nat "mo:core/Nat";
 import Bool "mo:core/Bool";
 import Iter "mo:core/Iter";
-import MixinAuthorization "authorization/MixinAuthorization";
+
 import AccessControl "authorization/access-control";
-
-
+import MixinAuthorization "authorization/MixinAuthorization";
 
 actor {
-  type SeminarFormValues = {
+  public type SeminarFormValues = {
     seminarTitle : Text;
     organizerName : Text;
     organizerEmail : Text;
@@ -34,16 +33,50 @@ actor {
     name : Text;
   };
 
+  // State
   let accessControlState = AccessControl.initState();
-  include MixinAuthorization(accessControlState);
-
   let submissions = Map.empty<Principal, SeminarFormValues>();
   let userProfiles = Map.empty<Principal, UserProfile>();
 
-  public query ({ caller }) func getCallerUserProfile() : async ?UserProfile {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can save profiles");
+  // Mixin for role management
+  include MixinAuthorization(accessControlState);
+
+  // Claim admin — only works when no admin has been assigned yet
+  public shared ({ caller }) func claimFirstAdmin() : async Bool {
+    if (caller.isAnonymous()) {
+      return false;
     };
+    if (accessControlState.adminAssigned) {
+      return false;
+    };
+    accessControlState.userRoles.add(caller, #admin);
+    accessControlState.adminAssigned := true;
+    return true;
+  };
+
+  // Check if no admin has been assigned yet
+  public query func isAdminUnclaimed() : async Bool {
+    not accessControlState.adminAssigned;
+  };
+
+  // Form submission - open to all
+  public shared ({ caller }) func submitForm(form : SeminarFormValues) : async () {
+    if (not form.privacyConsent or not form.paymentConsent) {
+      Runtime.trap("All consents must be accepted before submitting.");
+    };
+    submissions.add(caller, form);
+  };
+
+  // Get all submissions - restricted to admin
+  public query ({ caller }) func getAllSubmissions() : async [(Principal, SeminarFormValues)] {
+    if (not AccessControl.isAdmin(accessControlState, caller)) {
+      Runtime.trap("Unauthorized: Only admins can view all submissions");
+    };
+    submissions.toArray();
+  };
+
+  // User profile functions
+  public query ({ caller }) func getCallerUserProfile() : async ?UserProfile {
     userProfiles.get(caller);
   };
 
@@ -55,27 +88,6 @@ actor {
   };
 
   public shared ({ caller }) func saveCallerUserProfile(profile : UserProfile) : async () {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can save profiles");
-    };
     userProfiles.add(caller, profile);
   };
-
-  public shared ({ caller }) func submitForm(form : SeminarFormValues) : async () {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can submit forms");
-    };
-    if (not (form.privacyConsent and form.paymentConsent)) {
-      Runtime.trap("All consents must be accepted before submitting. ");
-    };
-    submissions.add(caller, form);
-  };
-
-  public query ({ caller }) func getAllSubmissions() : async [(Principal, SeminarFormValues)] {
-    if (not (AccessControl.isAdmin(accessControlState, caller))) {
-      Runtime.trap("Unauthorized: Only admins can view all submissions");
-    };
-    submissions.toArray();
-  };
 };
-

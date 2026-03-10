@@ -118,6 +118,8 @@ export enum UserRole {
 }
 export interface backendInterface {
     _initializeAccessControlWithSecret(userSecret: string): Promise<void>;
+    claimFirstAdmin(): Promise<boolean>;
+    isAdminUnclaimed(): Promise<boolean>;
     assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
     getAllSubmissions(): Promise<Array<[Principal, SeminarFormValues]>>;
     getCallerUserProfile(): Promise<UserProfile | null>;
@@ -143,6 +145,14 @@ export class Backend implements backendInterface {
             const result = await this.actor._initializeAccessControlWithSecret(arg0);
             return result;
         }
+    }
+    async claimFirstAdmin(): Promise<boolean> {
+        const result = await this.actor.claimFirstAdmin();
+        return result;
+    }
+    async isAdminUnclaimed(): Promise<boolean> {
+        const result = await this.actor.isAdminUnclaimed();
+        return result;
     }
     async assignCallerUserRole(arg0: Principal, arg1: UserRole): Promise<void> {
         if (this.processError) {
