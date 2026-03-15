@@ -7,6 +7,9 @@ interface RegistrationFormData {
   institutionName: string;
   position: string;
   date: string;
+  email: string;
+  phone: string;
+  alternatePhone: string;
 }
 
 export function useSubmitSeminarRegistration() {
@@ -17,19 +20,18 @@ export function useSubmitSeminarRegistration() {
     mutationFn: async (formData: RegistrationFormData) => {
       if (!actor) throw new Error("Actor not available");
 
-      // Map the 4-field UI form to the backend's full SeminarFormValues structure
       const backendForm: SeminarFormValues = {
         seminarTitle: "Awareness Over Addiction Seminar",
         organizerName: formData.name,
-        organizerEmail: "", // Not collected in simplified form
+        organizerEmail: formData.email,
         description: `Registration from ${formData.institutionName}`,
         targetAudience: formData.position,
         pricing: "Free",
-        location: "To be announced",
+        location: formData.phone,
         preferredDate: formData.date,
         timeZone: "IST",
         duration: "2 hours",
-        additionalSessions: "None",
+        additionalSessions: formData.alternatePhone || "N/A",
         equipmentRequirements: "None",
         record: false,
         questionsOrComments: `Institution: ${formData.institutionName}, Position: ${formData.position}`,
@@ -41,15 +43,10 @@ export function useSubmitSeminarRegistration() {
       await actor.submitForm(backendForm);
     },
     onSuccess: () => {
-      // Invalidate submissions query so admin view refreshes
       queryClient.invalidateQueries({ queryKey: ["seminarSubmissions"] });
     },
     onError: (error: any) => {
       console.error("Registration submission error:", error);
-      // Return user-friendly error message
-      if (error.message?.includes("Unauthorized")) {
-        throw new Error("You must be logged in to submit a registration.");
-      }
       throw error;
     },
   });

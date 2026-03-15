@@ -19,6 +19,9 @@ export default function SeminarRegistrationForm() {
     institutionName: "",
     position: "",
     date: "",
+    email: "",
+    phone: "",
+    alternatePhone: "",
   });
   const [showSuccess, setShowSuccess] = useState(false);
 
@@ -38,12 +41,13 @@ export default function SeminarRegistrationForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Basic validation
     if (
       !formData.name ||
       !formData.institutionName ||
       !formData.position ||
-      !formData.date
+      !formData.date ||
+      !formData.email ||
+      !formData.phone
     ) {
       return;
     }
@@ -56,8 +60,10 @@ export default function SeminarRegistrationForm() {
           institutionName: "",
           position: "",
           date: "",
+          email: "",
+          phone: "",
+          alternatePhone: "",
         });
-        // Hide success message after 5 seconds
         setTimeout(() => setShowSuccess(false), 5000);
       },
     });
@@ -123,6 +129,7 @@ export default function SeminarRegistrationForm() {
               required
               placeholder="Enter your full name"
               disabled={isPending}
+              data-ocid="seminar.name.input"
             />
           </div>
 
@@ -139,6 +146,7 @@ export default function SeminarRegistrationForm() {
               required
               placeholder="Enter your institution or organization"
               disabled={isPending}
+              data-ocid="seminar.institution.input"
             />
           </div>
 
@@ -155,6 +163,55 @@ export default function SeminarRegistrationForm() {
               required
               placeholder="Enter your position or role"
               disabled={isPending}
+              data-ocid="seminar.position.input"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="email">
+              Email Address <span className="text-destructive">*</span>
+            </Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              placeholder="Enter your email address"
+              disabled={isPending}
+              data-ocid="seminar.email.input"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="phone">
+              Phone Number <span className="text-destructive">*</span>
+            </Label>
+            <Input
+              id="phone"
+              name="phone"
+              type="tel"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              placeholder="Enter your phone number"
+              disabled={isPending}
+              data-ocid="seminar.phone.input"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="alternatePhone">Alternate Phone Number</Label>
+            <Input
+              id="alternatePhone"
+              name="alternatePhone"
+              type="tel"
+              value={formData.alternatePhone}
+              onChange={handleChange}
+              placeholder="Enter alternate phone number (optional)"
+              disabled={isPending}
+              data-ocid="seminar.alternatephone.input"
             />
           </div>
 
@@ -170,10 +227,16 @@ export default function SeminarRegistrationForm() {
               onChange={handleChange}
               required
               disabled={isPending}
+              data-ocid="seminar.date.input"
             />
           </div>
 
-          <Button type="submit" className="w-full" disabled={isPending}>
+          <Button
+            type="submit"
+            className="w-full"
+            disabled={isPending}
+            data-ocid="seminar.submit_button"
+          >
             {isPending ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />

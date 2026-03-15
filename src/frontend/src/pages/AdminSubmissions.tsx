@@ -108,6 +108,9 @@ export default function AdminSubmissions() {
                     <TableHead>Name</TableHead>
                     <TableHead>Institution</TableHead>
                     <TableHead>Position</TableHead>
+                    <TableHead>Email</TableHead>
+                    <TableHead>Phone</TableHead>
+                    <TableHead>Alt. Phone</TableHead>
                     <TableHead>Preferred Date</TableHead>
                   </TableRow>
                 </TableHeader>
@@ -132,6 +135,14 @@ export default function AdminSubmissions() {
                           : form.description}
                       </TableCell>
                       <TableCell>{form.targetAudience}</TableCell>
+                      <TableCell>{form.organizerEmail || "-"}</TableCell>
+                      <TableCell>{form.location || "-"}</TableCell>
+                      <TableCell>
+                        {form.additionalSessions === "N/A" ||
+                        !form.additionalSessions
+                          ? "-"
+                          : form.additionalSessions}
+                      </TableCell>
                       <TableCell>{form.preferredDate}</TableCell>
                     </TableRow>
                   ))}
